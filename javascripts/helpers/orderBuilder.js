@@ -2,6 +2,7 @@ import bread from './bread.js';
 import util from './util.js';
 import meat from './meat.js';
 import cheese from './cheese.js';
+import veggies from './veggies.js';
 
 const orderButtonEvent = () => {
     const orderButton = document.getElementById('orderButton');
@@ -12,6 +13,7 @@ const orderSandwich = () => {
   const breadType = document.getElementsByClassName('bread');
   const meatType = document.getElementsByClassName('meat');
   const cheeseType = document.getElementsByClassName('cheese');
+  const veggieType = document.getElementsByClassName('veggies');
 
   const order = [];
   let orderTotal = 0;
@@ -45,7 +47,18 @@ for( let i = 0; i < cheeseType.length; i++){
     
 }
 };
-  domString += `Order Total: $${orderTotal}`;
+
+for( let i = 0; i < veggieType.length; i++){
+    if(veggieType[i].checked === true){
+    console.log('type of Cheese: ' + veggieType[i].id);
+    console.log('price: ' + veggies.getVeggies()[veggieType[i].id]);
+    order.push(veggieType[i].id, veggies.getVeggies()[veggieType[i].id]);
+    orderTotal += veggies.getVeggies()[veggieType[i].id];
+    domString += `Cheese Type: ${veggieType[i].id} Price: $${veggies.getVeggies()[veggieType[i].id]}</br>`;
+    
+}
+};
+  domString += `Order Total: $${orderTotal.toFixed(2)}`;
   util.printToDom('cart-container', domString);
 //   util.printToDom('cart-container', order);
 
