@@ -3,6 +3,7 @@ import util from './util.js';
 import meat from './meat.js';
 import cheese from './cheese.js';
 import veggies from './veggies.js';
+import condiments from './condiments.js';
 
 const orderButtonEvent = () => {
     const orderButton = document.getElementById('orderButton');
@@ -14,6 +15,7 @@ const orderSandwich = () => {
   const meatType = document.getElementsByClassName('meat');
   const cheeseType = document.getElementsByClassName('cheese');
   const veggieType = document.getElementsByClassName('veggies');
+  const condimentType = document.getElementsByClassName('condiments');
 
   const order = [];
   let orderTotal = 0;
@@ -50,11 +52,22 @@ for( let i = 0; i < cheeseType.length; i++){
 
 for( let i = 0; i < veggieType.length; i++){
     if(veggieType[i].checked === true){
-    console.log('type of Cheese: ' + veggieType[i].id);
+    console.log('type of Veggie: ' + veggieType[i].id);
     console.log('price: ' + veggies.getVeggies()[veggieType[i].id]);
     order.push(veggieType[i].id, veggies.getVeggies()[veggieType[i].id]);
     orderTotal += veggies.getVeggies()[veggieType[i].id];
-    domString += `Cheese Type: ${veggieType[i].id} Price: $${veggies.getVeggies()[veggieType[i].id]}</br>`;
+    domString += `Veggie Type: ${veggieType[i].id} Price: $${veggies.getVeggies()[veggieType[i].id]}</br>`;
+    
+}
+};
+
+for( let i = 0; i < condimentType.length; i++){
+    if(condimentType[i].checked === true){
+    console.log('type of Condiment: ' + condimentType[i].id);
+    console.log('price: ' + condiments.getCondiments()[condimentType[i].id]);
+    order.push(condimentType[i].id, condiments.getCondiments()[condimentType[i].id]);
+    orderTotal += condiments.getCondiments()[condimentType[i].id];
+    domString += `Condiment Type: ${condimentType[i].id} Price: $${condiments.getCondiments()[condimentType[i].id]}</br>`;
     
 }
 };

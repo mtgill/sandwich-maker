@@ -14,15 +14,15 @@
 <div class="row">
     <div class="col-3">
     <div class="input-group mb-3">
-        <div class="input-group-prepend">
+        <div class="input-group-prepend"><h3>Bread</h3>
           <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input" id="white" class="bread">White
+            <input type="radio" aria-label="Checkbox for following text input" id="white" class="bread" name="bread">White
           </div>
           <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input" id="wheat" class="bread">Wheat
+            <input type="radio" aria-label="Checkbox for following text input" id="wheat" class="bread" name="bread">Wheat
           </div>
           <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input" id="sourdough" class="bread">Sourdough
+            <input type="radio" aria-label="Checkbox for following text input" id="sourdough" class="bread" name="bread">Sourdough
           </div>
         </div>
         </div>
@@ -31,7 +31,7 @@
 <div class="row">
       <div class="col-3">
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
+                <div class="input-group-prepend"><h3>Meat</h3>
                   <div class="input-group-text">
                     <input type="checkbox" aria-label="Checkbox for following text input" id="ham" class="meat">Ham
                   </div>
@@ -52,7 +52,7 @@
 <div class="row">
         <div class="col-3">
               <div class="input-group mb-3">
-                  <div class="input-group-prepend">
+                  <div class="input-group-prepend"><h3>Cheese</h3>
                     <div class="input-group-text">
                       <input type="checkbox" aria-label="Checkbox for following text input" id="chedder" class="cheese">Chedder
                     </div>
@@ -73,7 +73,7 @@
   <div class="row">
         <div class="col-3">
               <div class="input-group mb-3">
-                  <div class="input-group-prepend">
+                  <div class="input-group-prepend"><h3>Veggies</h3>
                     <div class="input-group-text">
                       <input type="checkbox" aria-label="Checkbox for following text input" id="lettuce" class="veggies">Lettuce
                     </div>
@@ -91,9 +91,31 @@
           </div>
   </div>
 
-      <button class="btn btn-primary" id="orderButton">Order</button>
+  <div class="row">
+        <div class="col-3">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend"><h3>Condiments</h3>
+                    <div class="input-group-text">
+                      <input type="checkbox" aria-label="Checkbox for following text input" id="mustard" class="condiments">Mustard
+                    </div>
+                    <div class="input-group-text">
+                      <input type="checkbox" aria-label="Checkbox for following text input" id="mayo" class="condiments">Mayo
+                    </div>
+                    <div class="input-group-text">
+                      <input type="checkbox" aria-label="Checkbox for following text input" id="relish" class="condiments">Relish
+                    </div>
+                    <div class="input-group-text">
+                          <input type="checkbox" aria-label="Checkbox for following text input" id="seasoning" class="condiments">Seasoning
+                      </div>
+                  </div>
+                  </div>
+          </div>
+  </div>
 
+      <button class="btn btn-primary" id="orderButton">Order</button>
+<div class="cart"><h2>Cart</h2>
       <div id="cart-container" class="col-6"></div>
+</div>
     
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
