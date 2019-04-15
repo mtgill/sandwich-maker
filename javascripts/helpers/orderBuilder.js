@@ -11,6 +11,7 @@ const orderSandwich = () => {
 
   const order = [];
   let orderTotal = 0;
+  let domString = "";
   for( let i = 0; i < breadBoxes.length; i++){
       if(breadBoxes[i].checked === true){
       console.log('type of bread: ' + breadBoxes[i].id);
@@ -19,9 +20,10 @@ const orderSandwich = () => {
       console.log(order);
       orderTotal += bread.getBread()[breadBoxes[i].id];
       console.log(orderTotal);
+      domString += `Bread Type: ${breadBoxes[i].id} Price: ${bread.getBread()[breadBoxes[i].id]}`;
   }
-
-  util.printToDom('cart-container', order);
+  util.printToDom('cart-container', domString);
+//   util.printToDom('cart-container', order);
 };
 
 }
