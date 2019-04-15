@@ -1,6 +1,7 @@
 import bread from './bread.js';
 import util from './util.js';
 import meat from './meat.js';
+import cheese from './cheese.js';
 
 const orderButtonEvent = () => {
     const orderButton = document.getElementById('orderButton');
@@ -10,6 +11,7 @@ const orderButtonEvent = () => {
 const orderSandwich = () => {
   const breadType = document.getElementsByClassName('bread');
   const meatType = document.getElementsByClassName('meat');
+  const cheeseType = document.getElementsByClassName('cheese');
 
   const order = [];
   let orderTotal = 0;
@@ -20,7 +22,7 @@ const orderSandwich = () => {
       console.log('price: ' + bread.getBread()[breadType[i].id]);
       order.push(breadType[i].id, bread.getBread()[breadType[i].id]);
       orderTotal += bread.getBread()[breadType[i].id];
-      domString += `Bread Type: ${breadType[i].id} Price: ${bread.getBread()[breadType[i].id]}</br>`;
+      domString += `Bread Type: ${breadType[i].id} Price: $${bread.getBread()[breadType[i].id]}</br>`;
   }
   };
   for( let i = 0; i < meatType.length; i++){
@@ -29,9 +31,21 @@ const orderSandwich = () => {
     console.log('price: ' + meat.getMeat()[meatType[i].id]);
     order.push(meatType[i].id, meat.getMeat()[meatType[i].id]);
     orderTotal += meat.getMeat()[meatType[i].id];
-    domString += `Meat Type: ${meatType[i].id} Price: ${meat.getMeat()[meatType[i].id]}</br>`;
+    domString += `Meat Type: ${meatType[i].id} Price: $${meat.getMeat()[meatType[i].id]}</br>`;
 }
 };
+
+for( let i = 0; i < cheeseType.length; i++){
+    if(cheeseType[i].checked === true){
+    console.log('type of Cheese: ' + cheeseType[i].id);
+    console.log('price: ' + cheese.getCheese()[cheeseType[i].id]);
+    order.push(cheeseType[i].id, cheese.getCheese()[cheeseType[i].id]);
+    orderTotal += cheese.getCheese()[cheeseType[i].id];
+    domString += `Cheese Type: ${cheeseType[i].id} Price: $${cheese.getCheese()[cheeseType[i].id]}</br>`;
+    
+}
+};
+  domString += `Order Total: $${orderTotal}`;
   util.printToDom('cart-container', domString);
 //   util.printToDom('cart-container', order);
 
