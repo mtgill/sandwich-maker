@@ -4,7 +4,7 @@
 This application lets you customize a sandwich by choosing from multiple ingredients. Once you place an order a summary of your sandwich is displayed along with the total price. 
 
 ## Screenshots 
-
+![sandwich-maker screenshot](https://raw.githubusercontent.com/mtgill/sandwich-maker/master/screenshots/sandwich-maker-screenshot.PNG "sandwich-maker screenshot")
 
 ## Technologies Used 
 * HTML
