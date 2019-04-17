@@ -11,71 +11,36 @@ const orderButtonEvent = () => {
 };
 
 const orderSandwich = () => {
-  const breadType = document.getElementsByClassName('bread');
-  const meatType = document.getElementsByClassName('meat');
-  const cheeseType = document.getElementsByClassName('cheese');
-  const veggieType = document.getElementsByClassName('veggies');
-  const condimentType = document.getElementsByClassName('condiments');
-
+  const checkBoxes = document.getElementsByClassName('checkBox');
+  const breadTypes = bread.getBread();
+  const meatTypes = meat.getMeat();
+  const veggieTypes = veggies.getVeggies();
+  const cheeseTypes = cheese.getCheese();
+  const condimentTypes = condiments.getCondiments();
   const order = [];
   let orderTotal = 0;
   let domString = "";
-  for( let i = 0; i < breadType.length; i++){
-      if(breadType[i].checked === true){
-      console.log('type of bread: ' + breadType[i].id);
-      console.log('price: ' + bread.getBread()[breadType[i].id]);
-      order.push(breadType[i].id, bread.getBread()[breadType[i].id]);
-      orderTotal += bread.getBread()[breadType[i].id];
-      domString += `Bread Type: ${breadType[i].id} Price: $${bread.getBread()[breadType[i].id]}</br>`;
-  }
+  
+  const allIngredients = {
+      ...breadTypes,
+      ...meatTypes,
+      ...veggieTypes,
+      ...cheeseTypes,
+      ...condimentTypes
   };
-  for( let i = 0; i < meatType.length; i++){
-    if(meatType[i].checked === true){
-    console.log('type of meat: ' + meatType[i].id);
-    console.log('price: ' + meat.getMeat()[meatType[i].id]);
-    order.push(meatType[i].id, meat.getMeat()[meatType[i].id]);
-    orderTotal += meat.getMeat()[meatType[i].id];
-    domString += `Meat Type: ${meatType[i].id} Price: $${meat.getMeat()[meatType[i].id]}</br>`;
-}
-};
 
-for( let i = 0; i < cheeseType.length; i++){
-    if(cheeseType[i].checked === true){
-    console.log('type of Cheese: ' + cheeseType[i].id);
-    console.log('price: ' + cheese.getCheese()[cheeseType[i].id]);
-    order.push(cheeseType[i].id, cheese.getCheese()[cheeseType[i].id]);
-    orderTotal += cheese.getCheese()[cheeseType[i].id];
-    domString += `Cheese Type: ${cheeseType[i].id} Price: $${cheese.getCheese()[cheeseType[i].id]}</br>`;
-    
-}
-};
-
-for( let i = 0; i < veggieType.length; i++){
-    if(veggieType[i].checked === true){
-    console.log('type of Veggie: ' + veggieType[i].id);
-    console.log('price: ' + veggies.getVeggies()[veggieType[i].id]);
-    order.push(veggieType[i].id, veggies.getVeggies()[veggieType[i].id]);
-    orderTotal += veggies.getVeggies()[veggieType[i].id];
-    domString += `Veggie Type: ${veggieType[i].id} Price: $${veggies.getVeggies()[veggieType[i].id]}</br>`;
-    
-}
-};
-
-for( let i = 0; i < condimentType.length; i++){
-    if(condimentType[i].checked === true){
-    console.log('type of Condiment: ' + condimentType[i].id);
-    console.log('price: ' + condiments.getCondiments()[condimentType[i].id]);
-    order.push(condimentType[i].id, condiments.getCondiments()[condimentType[i].id]);
-    orderTotal += condiments.getCondiments()[condimentType[i].id];
-    domString += `Condiment Type: ${condimentType[i].id} Price: $${condiments.getCondiments()[condimentType[i].id]}</br>`;
-    
-}
-};
+  for( let i = 0; i < checkBoxes.length; i++){
+    if(checkBoxes[i].checked === true){
+      console.log(checkBoxes[i].id);
+      console.log(allIngredients[checkBoxes[i].id]);
+      orderTotal += allIngredients[checkBoxes[i].id];
+      domString += `Ingredient: ${checkBoxes[i].id} Price: $${allIngredients[checkBoxes[i].id]}</br>`;
+      console.log(orderTotal);
+    }
+      
+  };
   domString += `Order Total: $${orderTotal.toFixed(2)}`;
   util.printToDom('cart-container', domString);
-//   util.printToDom('cart-container', order);
-
-
 }
 
 export default { orderButtonEvent };
