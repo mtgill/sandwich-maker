@@ -10,6 +10,8 @@ const orderButtonEvent = () => {
     orderButton.addEventListener('click', orderSandwich);
 };
 
+//function calls imported methods to create ingredient objects
+//use spread operator to combine all ingredient objects into one object - allIngredients
 const orderSandwich = () => {
   const checkBoxes = document.getElementsByClassName('checkBox');
   const breadTypes = bread.getBread();
@@ -17,7 +19,6 @@ const orderSandwich = () => {
   const veggieTypes = veggies.getVeggies();
   const cheeseTypes = cheese.getCheese();
   const condimentTypes = condiments.getCondiments();
-  const order = [];
   let orderTotal = 0;
   let domString = "";
   
@@ -31,15 +32,12 @@ const orderSandwich = () => {
 
   for( let i = 0; i < checkBoxes.length; i++){
     if(checkBoxes[i].checked === true){
-      console.log(checkBoxes[i].id);
-      console.log(allIngredients[checkBoxes[i].id]);
       orderTotal += allIngredients[checkBoxes[i].id];
-      domString += `Ingredient: ${checkBoxes[i].id} Price: $${allIngredients[checkBoxes[i].id]}</br>`;
-      console.log(orderTotal);
+      domString += `Ingredient: <b>${checkBoxes[i].id}</b> Price: <b>$${allIngredients[checkBoxes[i].id]}</b></br>`;
+
     }
-      
   };
-  domString += `Order Total: $${orderTotal.toFixed(2)}`;
+  domString += `Order Total: <b>$${orderTotal.toFixed(2)}</b>`;
   util.printToDom('cart-container', domString);
 }
 

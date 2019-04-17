@@ -5,5 +5,3 @@ const init = () => {
 };
 
 init();
-
-console.log('main js');
